@@ -1,0 +1,33 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>看盘</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="[ '/trend' ]">趋势</a>
+      <a mat-list-item [routerLink]="[ '/follow' ]">关注</a>
+    </mat-nav-list>
+    <mat-divider></mat-divider>
+    <mat-toolbar>研究</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="[ '/strategies' ]">策略库</a>
+      <a mat-list-item [routerLink]="[ '/factores' ]">因子库</a>
+      <a mat-list-item [routerLink]="[ '/backtrade' ]">回测</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Tquant Mac</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
