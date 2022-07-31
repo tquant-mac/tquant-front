@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-title>{{ name }}</mat-card-title>
+    <mat-card-subtitle class="indicator-trend">
+        <div>
+            {{ trend | percent }}
+        </div>
+        <ng-container *ngIf="trend > 0; else elseTemplate">
+            <mat-icon class="up-color">trending_up</mat-icon>
+        </ng-container>
+        <ng-template #elseTemplate>
+            <mat-icon class="down-color">trending_down</mat-icon>
+        </ng-template>
+        
+    </mat-card-subtitle>
+    <mat-card-content>{{ value | currency }}</mat-card-content>
+</mat-card>

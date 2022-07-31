@@ -1,0 +1,25 @@
+#trend-page {
+    padding: 10px;
+
+    #indicator-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: nowrap;
+        margin-bottom: 10px;
+    }
+
+    .indicator-item {
+        margin-right: 10px;
+        width: calc(100vw / 5);
+    }
+
+    .indicator-item:last-child {
+        margin-right: 0px;
+    }
+
+    .trend-item {
+        margin-right: 10px;
+    }
+}

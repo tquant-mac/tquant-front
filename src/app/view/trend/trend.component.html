@@ -1,1 +1,10 @@
-<p>trend works!</p>
+<div id="trend-page">
+  <div id="indicator-row">
+    <div class="indicator-item" *ngFor="let ticker of tickers.slice(0, 5)">
+      <app-indicator [name]="ticker.symbol" [trend]="ticker.last" [value]="ticker.last"></app-indicator>
+    </div>
+  </div>
+  <div>
+    <mat-card>Hello World</mat-card>
+  </div>
+</div>

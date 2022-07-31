@@ -8,7 +8,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NgxsModule } from '@ngxs/store';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +27,9 @@ import { FollowState } from './state/follow/follow.state';
 import { StrategiesState } from './state/strategies/strategies.state';
 import { FactoresState } from './state/factores/factores.state';
 import { BacktradeState } from './state/backtrade/backtrade.state';
+import { IndicatorComponent } from './component/indicator/indicator.component';
+import { TickersState } from './state/tickers/tickers.state';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -33,7 +39,8 @@ import { BacktradeState } from './state/backtrade/backtrade.state';
     FollowComponent,
     FactoresComponent,
     BacktradeComponent,
-    StrategiesComponent
+    StrategiesComponent,
+    IndicatorComponent
   ],
   imports: [
     MatSliderModule,
@@ -46,18 +53,22 @@ import { BacktradeState } from './state/backtrade/backtrade.state';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatCardModule,
+    MatProgressBarModule,
     NgxsModule.forRoot(
       [
         TrendState,
         FollowState,
         StrategiesState,
         FactoresState,
-        BacktradeState
+        BacktradeState,
+        TickersState
       ],
       {
         developmentMode: !environment.production
       }
-    )
+    ),
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
